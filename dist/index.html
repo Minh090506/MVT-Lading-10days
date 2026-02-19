@@ -92,14 +92,22 @@
             <div id="booking" class="bg-white p-8 rounded-2xl shadow-2xl max-w-md mx-auto w-full">
                 <h3 class="text-2xl font-bold mb-2 text-dark-green">Get a Quote</h3>
                 <p class="text-sm text-gray-500 mb-6">Personalized itinerary tailored for you.</p>
-                <form class="space-y-4">
-                    <input type="text" placeholder="Full Name" class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-gold-accent outline-none">
-                    <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-gold-accent outline-none">
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                    <!-- Web3Forms config -->
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" value="New Tour Inquiry - MyVivaTour">
+                    <input type="hidden" name="from_name" value="MyVivaTour Website">
+                    <input type="hidden" name="redirect" value="https://myvivatour.com/thank-you.html">
+                    <!-- Honeypot spam protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <input type="text" name="name" placeholder="Full Name" required class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-gold-accent outline-none">
+                    <input type="email" name="email" placeholder="Email Address" required class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-gold-accent outline-none">
                     <div class="grid grid-cols-2 gap-4">
-                        <input type="text" placeholder="Phone" class="px-4 py-3 rounded-lg border focus:ring-2 focus:ring-gold-accent outline-none">
-                        <input type="text" placeholder="Travel Date" class="px-4 py-3 rounded-lg border focus:ring-2 focus:ring-gold-accent outline-none">
+                        <input type="text" name="phone" placeholder="Phone" required class="px-4 py-3 rounded-lg border focus:ring-2 focus:ring-gold-accent outline-none">
+                        <input type="text" name="travel_date" placeholder="Travel Date" class="px-4 py-3 rounded-lg border focus:ring-2 focus:ring-gold-accent outline-none">
                     </div>
-                    <button class="w-full bg-dark-green text-white font-bold py-4 rounded-lg hover:bg-opacity-90 transition uppercase tracking-widest">Send My Request</button>
+                    <button type="submit" class="w-full bg-dark-green text-white font-bold py-4 rounded-lg hover:bg-opacity-90 transition uppercase tracking-widest">Send My Request</button>
                 </form>
             </div>
         </div>
